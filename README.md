@@ -151,7 +151,7 @@ Since we serve the client directly from the Express backend, you only need to de
 3. **Configure Environment Variables:**
    * `NODE_ENV` = `production`
    * `JWT_SECRET` = `your_super_secret_jwt_key`
-   * `DATABASE_URL` = `file:/data/dev.db`
+   * `DATABASE_URL` = `file:../db/dev.db`
 4. **Attach Persistent Disk:**
    * Go to the **Disks** tab of your Render Web Service.
-   * Add a disk with **Mount Path** set to `/data` (size: `1 GB`). This ensures that your SQLite database is persistent across restarts and redeployments!
+   * Add a disk with **Mount Path** set to `/opt/render/project/src/server/db` (size: `1 GB`). This ensures that your SQLite database is stored on the persistent disk without any permission errors!
