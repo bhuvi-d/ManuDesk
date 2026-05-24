@@ -4,10 +4,10 @@
   "description": "ManuDesk Monolith Project",
   "scripts": {
     "build:client": "npm --prefix client run build",
-    "build:server": "npx prisma generate --schema=server/prisma/schema.prisma",
-    "db:migrate": "npx prisma migrate deploy --schema=server/prisma/schema.prisma",
+    "build:server": "node server/node_modules/prisma/build/index.js generate --schema=server/prisma/schema.prisma",
+    "db:migrate": "node server/node_modules/prisma/build/index.js db push --schema=server/prisma/schema.prisma --accept-data-loss",
     "db:seed": "node server/utils/seed.js",
-    "build": "npm --prefix client install --include=dev && npm --prefix client run build && npm --prefix server install && npx prisma generate --schema=server/prisma/schema.prisma",
+    "build": "npm --prefix client install --include=dev && npm --prefix client run build && npm --prefix server install && npm run build:server",
     "start": "npm run db:migrate && npm run db:seed && npm --prefix server start"
   }
 }
