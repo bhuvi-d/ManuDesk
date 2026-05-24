@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.5rem;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  @apply bg-[#fafafa] text-zinc-900 antialiased;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+.dark body {
+  @apply bg-zinc-950 text-zinc-50;
+}
+
+/* Custom scrollbars for a clean look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-200 rounded-full hover:bg-zinc-300;
+}
+
+/* Custom Kanban board drag drop visual hints */
+.kanban-column {
+  min-height: calc(100vh - 250px);
+}
+
+.kanban-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.kanban-card:active {
+  cursor: grabbing;
+}
+
+/* Utilities for glass effects when needed subtly */
+.subtle-shadow {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+}
+
+.compact-border {
+  border-color: rgba(228, 228, 231, 0.8);
+}
